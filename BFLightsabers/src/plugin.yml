@@ -1,0 +1,55 @@
+name: BFLightsabers
+main: com.vark.lightsabers.main
+version: 1.30
+api-version: 1.16
+
+commands:
+    lsaber:
+        description: spawn a saber
+        usage: /lsaber
+    bleedcrystal:
+        description: Bleed A Crystal
+        usage: /bleedcrystal
+    getcrystals:
+        description: Bleed A Crystal
+        usage: /getcrystals
+    setcrystalrespawn:
+        description: Bleed A Crystal
+        usage: /setcrystalrespawn
+             
+    getsabers:
+        description: Bleed A Crystal
+        usage: /getsabers    
+        
+        
+    purifycrystal:
+        description: Bleed A Crystal
+        usage: /purifycrystal        
+
+
+
+permissions:
+    saber.use:
+        description: Use Lightsabers
+        default: op
+    saber.getcrystals:
+        description: Get All Crystals
+        default: op
+        
+    saber.sl:
+        description: Supreme Leader Saber
+        default: op
+        
+    saber.getsabers:
+        description: Get All Sabers
+        default: op  
+        
+          
+    saber.throw.use:
+        description: Throw Sabers
+        default: op  
+        
+        
+    saber.throw.cut:
+        description: Throw and Break Stuff
+        default: op                    
