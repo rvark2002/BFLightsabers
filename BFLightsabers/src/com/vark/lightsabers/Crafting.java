@@ -329,6 +329,10 @@ public class Crafting implements Listener {
 			meta.setCustomModelData(10000032);
 			meta.setDisplayName(ChatColor.AQUA + "Turquoise Lightsaber");
 		}
+		if (cmd == 81111111) {
+			meta.setCustomModelData(10000054);
+			meta.setDisplayName(ChatColor.GOLD + "Lava Lightsaber");
+		}
 
 		item.setItemMeta(meta);
 
@@ -399,6 +403,11 @@ public class Crafting implements Listener {
 			meta.setCustomModelData(10000033);
 			meta.setDisplayName(ChatColor.AQUA + "Turquoise Lightsaber");
 		}
+		
+		if (cmd == 81111111) {
+			meta.setCustomModelData(10000055);
+			meta.setDisplayName(ChatColor.GOLD + "Lava Lightsaber");
+		}
 
 		item.setItemMeta(meta);
 
@@ -468,6 +477,11 @@ public class Crafting implements Listener {
 		if (cmd == 71111111) {
 			meta.setCustomModelData(10000034);
 			meta.setDisplayName(ChatColor.AQUA + "Turquoise Lightsaber");
+		}
+		
+		if (cmd == 81111111) {
+			meta.setCustomModelData(10000056);
+			meta.setDisplayName(ChatColor.GOLD + "Lava Lightsaber");
 		}
 
 		item.setItemMeta(meta);
@@ -715,6 +729,11 @@ public class Crafting implements Listener {
 			meta.setCustomModelData(71111111);
 			meta.setDisplayName(ChatColor.AQUA + "Turquoise Kyber Crystal");
 		}
+		
+		if (cmd <= 10000054 && cmd >= 10000057) {
+			meta.setCustomModelData(81111111);
+			meta.setDisplayName(ChatColor.RED + "Lava Kyber Crystal");
+		}
 		item.setItemMeta(meta);
 
 		return item;
@@ -784,6 +803,11 @@ public class Crafting implements Listener {
 		if (cmd == 71111111) {
 			meta.setCustomModelData(10000053);
 			meta.setDisplayName(ChatColor.AQUA + "Turquoise Lightsaber");
+		}
+		
+		if (cmd == 81111111) {
+			meta.setCustomModelData(10000057);
+			meta.setDisplayName(ChatColor.GOLD + "Lava Lightsaber");
 		}
 
 		item.setItemMeta(meta);

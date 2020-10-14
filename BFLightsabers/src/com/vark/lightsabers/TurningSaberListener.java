@@ -158,7 +158,8 @@ public class TurningSaberListener implements Listener
 		if(c == 10000037)
 			a = true;
 		
-		
+		if(c == 10000056)
+			a = true;
 		
 		return a;
 		
@@ -173,6 +174,9 @@ public class TurningSaberListener implements Listener
 	{
 
 		if(c >= 150 && c <= 180)
+			return true;
+		
+		if(c == 153)
 			return true;
 
 		return false;
@@ -437,6 +441,15 @@ public class TurningSaberListener implements Listener
 			return 148;
 		else if(cmd == 10000026)
 			return 149;
+		//Lava
+		else if(cmd == 10000057)
+			return 151;
+		else if(cmd == 10000054)
+			return 150;
+		else if(cmd == 10000056)
+			return 153;
+		else if(cmd == 10000055)
+			return 152;
 		
 		else {
 			return 0;
@@ -550,6 +563,18 @@ public class TurningSaberListener implements Listener
 			return 10000028;
 		else if(cmd == 149)
 			return 10000026;
+		
+		//Lava
+		else if(cmd == 151)
+			return 10000057;
+		else if(cmd == 150)
+			return 10000054;
+		else if(cmd == 153)
+			return 10000056;
+		else if(cmd == 152)
+			return 10000055;
+
+		
 		
 		else
 			return 0;

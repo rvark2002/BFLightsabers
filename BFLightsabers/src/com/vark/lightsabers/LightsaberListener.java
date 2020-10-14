@@ -7,7 +7,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.craftbukkit.v1_16_R1.projectiles.CraftBlockProjectileSource;
+import org.bukkit.craftbukkit.v1_15_R1.projectiles.CraftBlockProjectileSource;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
@@ -223,7 +223,8 @@ public class LightsaberListener implements Listener
 		if(c == 10000037)
 			a = true;
 		
-		
+		if(c == 10000056)
+			a = true;		
 		
 		return a;
 		

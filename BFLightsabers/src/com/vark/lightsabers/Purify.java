@@ -151,6 +151,9 @@ public class Purify implements CommandExecutor
 		if(c == 71111111)
 			a = true;
 		
+		if(c == 81111111)
+			a = true;
+		
 		if(c == 31111111)
 			a = true;
 		

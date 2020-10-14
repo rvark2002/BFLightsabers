@@ -91,7 +91,11 @@ public class Crystals
 			cmeta.setCustomModelData(61111111);
 		}
 		
-		
+		if(s.equals("lava"))
+		{
+			cmeta.setDisplayName(ChatColor.GOLD+"Lava Kyber Crystal");
+			cmeta.setCustomModelData(81111111);
+		}
 		
 		
 		
