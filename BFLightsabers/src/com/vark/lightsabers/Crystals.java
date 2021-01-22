@@ -93,11 +93,15 @@ public class Crystals
 		
 		if(s.equals("lava"))
 		{
-			cmeta.setDisplayName(ChatColor.GOLD+"Lava Kyber Crystal");
+			cmeta.setDisplayName(ChatColor.RED+"Lava Kyber Crystal");
 			cmeta.setCustomModelData(81111111);
 		}
 		
-		
+		if(s.equals("lime"))
+		{
+			cmeta.setDisplayName(ChatColor.YELLOW+"Lime Kyber Crystal");
+			cmeta.setCustomModelData(91111111);
+		}
 		
 		
 		

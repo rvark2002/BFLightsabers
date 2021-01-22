@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.PrepareItemCraftEvent;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.ShapelessRecipe;
@@ -97,9 +98,244 @@ public class Crafting implements Listener {
 		plugin.getServer().addRecipe(kcs);
 		
 		
+		NamespacedKey key9 = new NamespacedKey(plugin, "KyberCrystalFromPike"); //Crystal from Pike
+		ShapelessRecipe kcp = new ShapelessRecipe(key9, kc);
+		kcp.addIngredient(Material.SCUTE);
+		
+		plugin.getServer().addRecipe(kcp);
+		
+		
+		
+		
+		
+		
+		
+		//Saber Pike
+		
+		ItemStack pike = new ItemStack(Material.SCUTE); 
+		ItemMeta pikemeta = pike.getItemMeta();
+		pikemeta.setCustomModelData(101);
+		pikemeta.setUnbreakable(true);
+		ArrayList<String> lorep = new ArrayList<String>();
+		lorep.add("An Ancient Weapon of Specialists..."); 
+		pikemeta.setLore(lorep);
+		
+		
+		NamespacedKey pikerec = new NamespacedKey(plugin, "saberpike"); //Cross saber
+		ShapedRecipe pikerc = new ShapedRecipe(pikerec, pike);
+		pikerc.shape("*N*", "*I*", "*I*");
+		pikerc.setIngredient('*', Material.AIR);
+		pikerc.setIngredient('N', Material.NETHER_STAR);
+		pikerc.setIngredient('I', Material.IRON_BLOCK);
+
+		plugin.getServer().addRecipe(pikerc);
+		
 		
 
+
 	}
+	
+	
+	@EventHandler
+	public void craftPike(PrepareItemCraftEvent e)
+	{
+		
+		
+		
+		if(e.getInventory().getResult() != null)
+		{
+			if(e.getInventory().getResult().getType() == Material.SCUTE)
+			{
+				
+				if(e.getInventory().getItem(1) != null)
+				{
+					
+					return;
+				}
+				if(e.getInventory().getItem(3) != null)
+				{
+					return;
+				}
+				if(e.getInventory().getItem(4) != null)
+				{
+					return;
+				}
+				if(e.getInventory().getItem(6) != null)
+				{
+					return;
+				}
+				if(e.getInventory().getItem(7) != null)
+				{
+					return;
+				}
+				if(e.getInventory().getItem(9) != null)
+				{
+					return;
+				}
+				if(e.getInventory().getItem(2) == null)
+				{
+					return;
+				}
+				if(e.getInventory().getItem(5) == null)
+				{
+					return;
+				}
+				if(e.getInventory().getItem(8) == null)
+				{
+					return;
+				}
+				if(e.getInventory().getItem(5).getType() == Material.IRON_BLOCK)
+				{
+					
+					if(e.getInventory().getItem(5).getAmount() == 1)
+					{
+						if(e.getInventory().getItem(8).getType() == Material.IRON_BLOCK)
+						{
+							if(e.getInventory().getItem(8).getAmount() == 1)
+							{
+								if(e.getInventory().getItem(2).getType() == Material.NETHER_STAR)
+								{
+									if(e.getInventory().getItem(2).getAmount() == 1)
+									{
+										
+										
+										ItemStack crystal = e.getInventory().getItem(2);
+										if(crystal.hasItemMeta())
+										{
+											if(crystal.getItemMeta().hasCustomModelData())
+											{
+												
+												
+												int crystalId = crystal.getItemMeta().getCustomModelData();
+												ItemStack sp = getPike(crystalId);
+												
+												e.getInventory().setResult(sp);
+	
+											}
+											else {
+												e.getInventory().setResult(null);
+											}
+											
+										}
+										else {
+											e.getInventory().setResult(null);
+										}
+										
+										
+	
+										
+					
+									}else {
+										e.getInventory().setResult(null);
+									}
+								}
+								else {
+									e.getInventory().setResult(null);
+								}
+							}
+							else {
+								e.getInventory().setResult(null);
+							}
+						}
+					}
+				}
+				
+				
+			}
+		
+		}
+		
+		
+		
+	}
+	
+	
+	
+	public ItemStack getPike(int cmd) {
+		ItemStack pike = new ItemStack(Material.SCUTE); 
+		ItemMeta meta = pike.getItemMeta();
+
+		meta.setUnbreakable(true);
+		ArrayList<String> lorep = new ArrayList<String>();
+		lorep.add("An Ancient Weapon of Specialists..."); 
+		meta.setLore(lorep);
+
+		if (cmd == 30000001) {
+			meta.setCustomModelData(104);
+			meta.setDisplayName(ChatColor.GOLD + "Orange Saber-Pike");
+		}
+
+		if (cmd == 30000011) {
+			meta.setCustomModelData(108);
+			meta.setDisplayName(ChatColor.DARK_AQUA + "Cyan Saber-Pike");
+		}
+
+		if (cmd == 30000111) {
+			meta.setCustomModelData(105);
+			meta.setDisplayName(ChatColor.YELLOW + "Yellow Saber-Pike");
+		}
+
+		if (cmd == 30001111) {
+			meta.setCustomModelData(114);
+			meta.setDisplayName(ChatColor.DARK_PURPLE + "Purple Saber-Pike");
+		}
+
+		if (cmd == 30011111) {
+			meta.setCustomModelData(101);
+			meta.setDisplayName(ChatColor.BLUE + "Blue Saber-Pike");
+		}
+
+		if (cmd == 30111111) {
+			meta.setCustomModelData(103);
+			meta.setDisplayName(ChatColor.GREEN + "Green Saber-Pike");
+		}
+
+		if (cmd == 31111111) {
+			meta.setCustomModelData(102);
+			meta.setDisplayName(ChatColor.RED + "Red Saber-Pike");
+		}
+
+		if (cmd == 41111111) {
+			meta.setCustomModelData(110);
+			meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Magenta Saber-Pike");
+		}
+
+		if (cmd == 30000101) {
+			meta.setCustomModelData(113);
+			meta.setDisplayName(ChatColor.WHITE + "White Saber-Pike");
+		}
+		if (cmd == 51111111) {
+			meta.setCustomModelData(109);
+			meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Pink Saber-Pike");
+		}
+		if (cmd == 61111111) {
+			meta.setCustomModelData(111);
+			meta.setDisplayName(ChatColor.GOLD + "Amber Saber-Pike");
+		}
+		if (cmd == 71111111) {
+			meta.setCustomModelData(112);
+			meta.setDisplayName(ChatColor.AQUA + "Turquoise Saber-Pike");
+		}
+		
+		if (cmd == 81111111) {
+			meta.setCustomModelData(107);
+			meta.setDisplayName(ChatColor.RED + "Lava Saber-Pike");
+		}
+		
+		if (cmd == 91111111) {
+			meta.setCustomModelData(106);
+			meta.setDisplayName(ChatColor.YELLOW + "Lime Saber-Pike");
+		}
+
+		pike.setItemMeta(meta);
+
+		return pike;
+	}
+	
+	
+	
+	
+	
 	
 	@EventHandler
 	public void craftCrystal(PrepareItemCraftEvent e)
@@ -153,6 +389,36 @@ public class Crafting implements Listener {
 							e.getInventory().setResult(null);
 						}
 					}
+					
+					
+					
+					if (e.getInventory().getItem(i)
+							.getType() == Material.SCUTE) {
+					
+						if (e.getInventory().getItem(i).getItemMeta()
+								.hasCustomModelData()) {
+							
+							e.getInventory()
+									.setResult(getPikeCrystal(e.getInventory()
+											.getItem(i).getItemMeta()
+											.getCustomModelData()));
+							
+							
+						} else {
+							e.getInventory().setResult(null);
+						}
+					}
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
 				}
 			}
 			}
@@ -181,8 +447,13 @@ public class Crafting implements Listener {
 				ItemStack item = e.getInventory().getItem(i);
 
 				if (item.getType() == Material.NETHER_STAR)
+				{
 					if (i == 5)
 						isStar = true;
+					
+					if(item.getAmount() != 1)
+						isStar = false;
+				}
 
 				if (item.getType() == Material.IRON_BLOCK)
 					if (i == 4)
@@ -196,8 +467,13 @@ public class Crafting implements Listener {
 					if (i == 8)
 						iron3 = true;
 				if (item.getType() == Material.NETHER_STAR)
+				{
 					if (i == 8)
 						isStar2 = true;
+					
+					if(item.getAmount() != 1)
+						isStar2 = false;
+				}
 				if (item.getType() == Material.IRON_BLOCK)
 					if (i == 5)
 						iron4 = true;
@@ -206,6 +482,7 @@ public class Crafting implements Listener {
 			}
 
 		}
+		//Regular saber
 
 		if (isStar && !iron1 && !iron2 && iron3 && !isStar2 && !iron4) {
 			ItemStack item = e.getInventory().getItem(5);
@@ -215,6 +492,52 @@ public class Crafting implements Listener {
 				int b = meta.getCustomModelData();
 
 				e.getInventory().setResult(getSaber(b));
+				
+				if(e.getInventory().getItem(1) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				if(e.getInventory().getItem(3) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				if(e.getInventory().getItem(4) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				
+				
+				if(e.getInventory().getItem(6) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				
+				
+				if(e.getInventory().getItem(7) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				if(e.getInventory().getItem(2) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				if(e.getInventory().getItem(9) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
 			} else
 				e.getInventory().setResult(null);
 		}
@@ -228,10 +551,51 @@ public class Crafting implements Listener {
 				int b = meta.getCustomModelData();
 
 				e.getInventory().setResult(getDSaber(b));
+				
+				
+				if(e.getInventory().getItem(1) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				if(e.getInventory().getItem(3) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				if(e.getInventory().getItem(2) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+
+				
+				
+				if(e.getInventory().getItem(7) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				if(e.getInventory().getItem(8) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				if(e.getInventory().getItem(9) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
 			} else
 				e.getInventory().setResult(null);
 		}
 
+		//Cross Guard
 		if ((isStar && (iron1 && iron2 && iron3 && !isStar2 && !iron4))) {
 			if (e.getView().getPlayer().hasPermission("sabers.sl")) {
 
@@ -242,6 +606,43 @@ public class Crafting implements Listener {
 					int b = meta.getCustomModelData();
 
 					e.getInventory().setResult(getCSaber(b));
+					
+					if(e.getInventory().getItem(1) != null)
+					{
+						e.getInventory().setResult(null);
+
+					}
+					
+					if(e.getInventory().getItem(3) != null)
+					{
+						e.getInventory().setResult(null);
+
+					}
+					
+					if(e.getInventory().getItem(2) != null)
+					{
+						e.getInventory().setResult(null);
+
+					}
+					
+
+					
+					
+					if(e.getInventory().getItem(7) != null)
+					{
+						e.getInventory().setResult(null);
+
+					}
+
+					
+					if(e.getInventory().getItem(9) != null)
+					{
+						e.getInventory().setResult(null);
+
+					}
+					
+					
+					
 				} else
 					e.getInventory().setResult(null);
 			} else
@@ -250,6 +651,7 @@ public class Crafting implements Listener {
 		}
 		
 		
+		//Backwards
 		if (!isStar && !iron1 && !iron2 && !iron3 && isStar2 && iron4) {
 
 			ItemStack item = e.getInventory().getItem(8);
@@ -259,11 +661,75 @@ public class Crafting implements Listener {
 				int b = meta.getCustomModelData();
 
 				e.getInventory().setResult(getBSaber(b));
+				
+				
+				
+				if(e.getInventory().getItem(1) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				if(e.getInventory().getItem(3) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				if(e.getInventory().getItem(2) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				if(e.getInventory().getItem(4) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				
+				
+				if(e.getInventory().getItem(6) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				
+				
+				if(e.getInventory().getItem(7) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+
+				
+				if(e.getInventory().getItem(9) != null)
+				{
+					e.getInventory().setResult(null);
+
+				}
+				
+				
+				
+				
 			} else
 				e.getInventory().setResult(null);
 		}
+		
+		
+
+		
+
+			
+			
+
 
 	}
+	
+
 
 	public ItemStack getSaber(int cmd) {
 		ItemStack item = new ItemStack(Material.CARROT_ON_A_STICK);
@@ -332,6 +798,10 @@ public class Crafting implements Listener {
 		if (cmd == 81111111) {
 			meta.setCustomModelData(10000054);
 			meta.setDisplayName(ChatColor.RED + "Lava Lightsaber");
+		}
+		if (cmd == 91111111) {
+			meta.setCustomModelData(10000058);
+			meta.setDisplayName(ChatColor.YELLOW + "Lime Lightsaber");
 		}
 
 		item.setItemMeta(meta);
@@ -408,6 +878,10 @@ public class Crafting implements Listener {
 			meta.setCustomModelData(10000055);
 			meta.setDisplayName(ChatColor.RED + "Lava Lightsaber");
 		}
+		if (cmd == 91111111) {
+			meta.setCustomModelData(10000059);
+			meta.setDisplayName(ChatColor.YELLOW + "Lime Lightsaber");
+		}
 
 		item.setItemMeta(meta);
 
@@ -482,6 +956,11 @@ public class Crafting implements Listener {
 		if (cmd == 81111111) {
 			meta.setCustomModelData(10000056);
 			meta.setDisplayName(ChatColor.RED + "Lava Lightsaber");
+		}
+		
+		if (cmd == 91111111) {
+			meta.setCustomModelData(10000060);
+			meta.setDisplayName(ChatColor.YELLOW + "Lime Lightsaber");
 		}
 
 		item.setItemMeta(meta);
@@ -734,6 +1213,12 @@ public class Crafting implements Listener {
 			meta.setCustomModelData(81111111);
 			meta.setDisplayName(ChatColor.RED + "Lava Kyber Crystal");
 		}
+		
+		
+		if (cmd >= 10000058 && cmd <= 10000061) {
+			meta.setCustomModelData(91111111);
+			meta.setDisplayName(ChatColor.YELLOW + "Lime Kyber Crystal");
+		}		
 		item.setItemMeta(meta);
 
 		return item;
@@ -809,6 +1294,12 @@ public class Crafting implements Listener {
 			meta.setCustomModelData(10000057);
 			meta.setDisplayName(ChatColor.RED + "Lava Lightsaber");
 		}
+		
+		if (cmd == 91111111) {
+			meta.setCustomModelData(10000061);
+			meta.setDisplayName(ChatColor.YELLOW + "Lime Lightsaber");
+		}
+
 
 		item.setItemMeta(meta);
 
@@ -817,7 +1308,88 @@ public class Crafting implements Listener {
 
 
 
+	public ItemStack getPikeCrystal(int cmd) {
 
+		ItemStack item = new ItemStack(Material.NETHER_STAR);
+		ItemMeta meta = item.getItemMeta();
+		ArrayList<String> lore = new ArrayList<String>();
+		lore.add("A Shiny Crystal That Contains Unknown Powers...");
+		meta.setLore(lore);
+		
+
+		if (cmd == 104) {
+			meta.setCustomModelData(30000001);
+			meta.setDisplayName(ChatColor.GOLD + "Orange Kyber Crystal");
+		}
+
+		if (cmd == 108) {
+			meta.setCustomModelData(30000011);
+			meta.setDisplayName(ChatColor.DARK_AQUA + "Cyan Kyber Crystal");
+		}
+
+		if (cmd == 105) {
+			meta.setCustomModelData(30000111);
+			meta.setDisplayName(ChatColor.YELLOW + "Yellow Kyber Crystal");
+		}
+
+		if (cmd == 114) {
+			meta.setCustomModelData(30001111);
+			meta.setDisplayName(ChatColor.DARK_PURPLE + "Purple Kyber Crystal");
+		}
+
+		if (cmd == 101) {
+			meta.setCustomModelData(30011111);
+			meta.setDisplayName(ChatColor.BLUE + "Blue Kyber Crystal");
+		}
+
+		if (cmd == 103) {
+			meta.setCustomModelData(30111111);
+			meta.setDisplayName(ChatColor.GREEN + "Green Kyber Crystal");
+		}
+
+		if (cmd == 102) {
+			meta.setCustomModelData(31111111);
+			meta.setDisplayName(ChatColor.RED + "Red Kyber Crystal");
+		}
+
+		if (cmd == 110) {
+			meta.setCustomModelData(41111111);
+			meta.setDisplayName(
+					ChatColor.LIGHT_PURPLE + "Magenta Kyber Crystal");
+		}
+
+		if (cmd == 113) {
+			meta.setCustomModelData(30000101);
+			meta.setDisplayName(ChatColor.WHITE + "White Kyber Crystal");
+		}
+		if (cmd == 109) {
+			meta.setCustomModelData(51111111);
+			meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Pink Kyber Crystal");
+		}
+		if (cmd == 111) {
+			meta.setCustomModelData(61111111);
+			meta.setDisplayName(ChatColor.GOLD + "Amber Kyber Crystal");
+		}
+		if (cmd == 112) {
+			meta.setCustomModelData(71111111);
+			meta.setDisplayName(ChatColor.AQUA + "Turquoise Kyber Crystal");
+		}
+
+		
+		if (cmd == 107) {
+			meta.setCustomModelData(81111111);
+			meta.setDisplayName(ChatColor.RED + "Lava Kyber Crystal");
+		}
+		
+		
+		if (cmd == 106) {
+			meta.setCustomModelData(91111111);
+			meta.setDisplayName(ChatColor.YELLOW + "Lime Kyber Crystal");
+		}		
+		item.setItemMeta(meta);
+
+		return item;
+	}
 
 
 

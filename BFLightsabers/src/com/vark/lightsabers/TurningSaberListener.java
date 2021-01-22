@@ -161,6 +161,9 @@ public class TurningSaberListener implements Listener
 		if(c == 10000056)
 			a = true;
 		
+		if(c == 10000060)
+			a = true;
+		
 		return a;
 		
 		
@@ -173,10 +176,12 @@ public class TurningSaberListener implements Listener
 	public boolean isCrossHilt(int c)
 	{
 
-		if(c >= 150 && c <= 180)
+		if(c >= 138 && c <= 149)
 			return true;
 		
 		if(c == 153)
+			return true;
+		if(c == 157)
 			return true;
 
 		return false;
@@ -451,6 +456,56 @@ public class TurningSaberListener implements Listener
 		else if(cmd == 10000055)
 			return 152;
 		
+		
+		//Lime
+		else if(cmd == 10000061)
+			return 155;
+		else if(cmd == 10000058)
+			return 154;
+		else if(cmd == 10000060)
+			return 157;
+		else if(cmd == 10000059)
+			return 156;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//Green-blue
+		
+		else if(cmd == 10000039)
+			return 158;
+		
+		
+		//Red Purple
+		
+		else if(cmd == 10000038)
+			return 161;
+		
+		
+		
+		
+		//Amber Turquoise
+		else if(cmd == 10000040)
+			return 160;
+		
+		
+		
+		//Orange Cyan
+		else if(cmd == 10000041)
+			return 159;
+		
+		
+		
+		
+		
+		
+		
+		
 		else {
 			return 0;
 		}
@@ -574,6 +629,64 @@ public class TurningSaberListener implements Listener
 		else if(cmd == 152)
 			return 10000055;
 
+		//Lime
+		else if(cmd == 155)
+			return 10000061;
+		else if(cmd == 154)
+			return 10000058;
+		else if(cmd == 157)
+			return 10000060;
+		else if(cmd == 156)
+			return 10000059;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//Green-blue
+		
+		else if(cmd == 158)
+			return 10000039;
+		
+		
+		//Red Purple
+		
+		else if(cmd == 161)
+			return 10000038;
+		
+		
+		
+		
+		//Amber Turquoise
+		else if(cmd == 160)
+			return 10000040;
+		
+		
+		
+		//Orange Cyan
+		else if(cmd == 159)
+			return 10000041;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		else

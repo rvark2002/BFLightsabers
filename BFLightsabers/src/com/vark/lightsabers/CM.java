@@ -14,6 +14,8 @@ class CM
 {
         public static HashMap<UUID, Double> st; //Saber Throw
         public static HashMap<UUID, Double> si; //SaberIgnite
+        
+        public static HashMap<UUID, Double> pr; //PikeRush
 
         
     
@@ -22,6 +24,7 @@ class CM
     {
         st = new HashMap<>();
         si = new HashMap<>();
+        pr = new HashMap<>();
  
     }
     
@@ -40,7 +43,11 @@ class CM
         si.put(player.getUniqueId(),delay);
     }
     
-   
+    public static void setPR(Player player, int seconds)
+    {
+        double delay = System.currentTimeMillis() + (seconds*1000);
+        pr.put(player.getUniqueId(),delay);
+    } 
     
     
     
@@ -54,6 +61,11 @@ class CM
     public static int getCSI(Player player)
     {
         return Math.toIntExact(Math.round((si.get(player.getUniqueId())- System.currentTimeMillis())/1000));
+    }
+    
+    public static int getPR(Player player)
+    {
+        return Math.toIntExact(Math.round((pr.get(player.getUniqueId())- System.currentTimeMillis())/1000));
     }
 
     
@@ -79,7 +91,13 @@ class CM
     }  
     
 
-    
+    public static boolean checkPR(Player player)
+    {
+        if(!pr.containsKey(player.getUniqueId()) || pr.get(player.getUniqueId()) <= System.currentTimeMillis()){
+            return true;
+        }
+        return false;
+    }  
     
     
 

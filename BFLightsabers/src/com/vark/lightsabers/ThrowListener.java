@@ -265,33 +265,7 @@ private Plugin plugin = main.getPlugin(main.class);
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	
@@ -307,13 +281,15 @@ private Plugin plugin = main.getPlugin(main.class);
 				{
 					if(e instanceof Player)
 					{
-						int dmg = 20;
+						int dmg = 10;
 						if(canPvPHere(e.getLocation()))
 						{
+							if(!townyCheck((Entity)p, e))
+							{
 							
 							if(getPowerLevel(p, "saberthrow") == 3)
 							{
-								dmg = 30;
+								dmg = 20;
 							}
 	
 						
@@ -344,6 +320,8 @@ private Plugin plugin = main.getPlugin(main.class);
 							
 							}
 						}
+							
+						}
 						
 						
 					}
@@ -351,7 +329,7 @@ private Plugin plugin = main.getPlugin(main.class);
 					{
 
 						LivingEntity ent = (LivingEntity) e;
-						ent.damage(20);
+						ent.damage(15);
 					}
 					
 				}
@@ -580,6 +558,15 @@ private Plugin plugin = main.getPlugin(main.class);
 		
 			if( !( (p.getInventory().getItemInMainHand().getType() == Material.AIR) || (p.getInventory().getItemInMainHand().getType() == null)) )
 			{
+				
+				
+				
+				if(p.getInventory().getItemInMainHand().getType() != Material.SCUTE && p.getInventory().getItemInMainHand().getType() != Material.CARROT_ON_A_STICK)
+				{
+					return false;
+				}
+				
+				
 				if(p.getInventory().getItemInMainHand().getItemMeta().hasCustomModelData())
 				{
 					int a = p.getInventory().getItemInMainHand().getItemMeta().getCustomModelData();
@@ -600,6 +587,11 @@ private Plugin plugin = main.getPlugin(main.class);
 								}
 							}
 						
+							return true;
+						}
+						
+						if(a >= 100 && a <= 120)
+						{
 							return true;
 						}
 					
@@ -670,7 +662,11 @@ private Plugin plugin = main.getPlugin(main.class);
 		if(c == 10000037)
 			a = true;
 		
+		if(c == 10000056)
+			a = true;
 		
+		if(c == 10000060)
+			a = true;
 		
 		return a;
 		
@@ -767,9 +763,17 @@ private Plugin plugin = main.getPlugin(main.class);
 	
 	
 	
+public static boolean townyCheck(Entity attack, Entity defense)
+{
+
+
 	
+	return com.palmergames.bukkit.towny.utils.CombatUtil.preventDamageCall(com.palmergames.bukkit.towny.Towny.getPlugin(), attack, defense);
+
+}
 	
-	
+
+
 public static boolean canPvPHere(Location location) {
     RegionContainer container = com.sk89q.worldguard.WorldGuard.getInstance().getPlatform().getRegionContainer();
     RegionQuery query = container.createQuery();

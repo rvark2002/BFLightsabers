@@ -1,6 +1,6 @@
 name: BFLightsabers
 main: com.vark.lightsabers.main
-version: 1.30
+version: 1.9
 api-version: 1.16
 
 commands:
